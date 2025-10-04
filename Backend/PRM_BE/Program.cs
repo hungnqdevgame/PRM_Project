@@ -17,9 +17,17 @@ builder.Services.AddOpenApi();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 
+/* Database Context Dependency Injection */
+//var dbHost = "localhost";
+//var dbName = "SalesAppDB";
+//var dbPassword = "12345678";
+//var connectionString = $"Data Source = {dbHost};Initial Catalog ={dbName};User Id = sa;Password ={dbPassword} ";
+//builder.Services.AddDbContext<SalesAppDBContext>(options => options.UseSqlServer(connectionString));
 
 builder.Services.AddDbContext<SalesAppDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
+
+
 builder.Services.AddAuthentication(option =>
 {
     option.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
@@ -52,6 +60,8 @@ builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<ICartService, CartService>();
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IUserService, UserService>();
 
 var app = builder.Build();
 

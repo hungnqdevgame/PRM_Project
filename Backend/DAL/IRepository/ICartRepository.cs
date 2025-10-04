@@ -14,7 +14,7 @@ namespace DAL.IRepository
         Task SaveChangesAsync();
         Task UpdateCartAsync(int userId, int productId, int quantity);
 
-        Task RemoveCartItemAsync(CartItem cartItem);
+        Task RemoveCartItemAsync(int userId, int productId);
         Task<CartItem?> GetCartItemAsync(int cartId, int productId);
         Task UpdateCartItemAsync(int userId, int productId, int quantityChange, bool isAbsolute = false);
     }
