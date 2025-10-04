@@ -26,7 +26,7 @@ namespace PRM_BE.Controllers
             {
                 CartId = cart.CartId,
                 UserId = cart.UserId ?? 0,
-                TotalPrice = cart.TotalPrice,
+                TotalPrice = cart.CartItems.Sum(ci => ci.Price * ci.Quantity),
                 Status = cart.Status,
                 Items = cart.CartItems.Select(ci => new CartItemDTO
                 {
@@ -48,11 +48,11 @@ namespace PRM_BE.Controllers
         }
 
         [HttpPut("update")]
-        public async Task<IActionResult> UpdateCart( int userId,int productId,int quantity)
+        public async Task<IActionResult> UpdateCart([FromBody] AddToCartDTO request)
         {
             try
             {
-                await _cartService.UpdateCartAsync(userId,productId,quantity);
+                await _cartService.UpdateCartAsync(request.UserId,request.ProductId ,request.Quantity);
                 return Ok(new { message = "Cart updated successfully" });
             }
             catch (Exception ex)
@@ -62,25 +62,27 @@ namespace PRM_BE.Controllers
         }
 
         [HttpPost("increase")]
-        public async Task<IActionResult> Increase(int userId, int productId)
+        public async Task<IActionResult> Increase([FromBody] UpdateCartDTO request)
         {
-            await _cartService.UpdateCartItemAsync(userId, productId, 1);
+            await _cartService.UpdateCartItemAsync(request.UserId, request.ProductId, 1);
             return Ok("Increased successfully");
         }
 
         [HttpPost("decrease")]
-        public async Task<IActionResult> Decrease(int userId, int productId)
+        public async Task<IActionResult> Decrease([FromBody] UpdateCartDTO request)
         {
-            await _cartService.UpdateCartItemAsync(userId, productId, -1);
+            await _cartService.UpdateCartItemAsync(request.UserId, request.ProductId, -1);
             return Ok("Decreased successfully");
         }
 
-        [HttpPost("update-quantity")]
-        public async Task<IActionResult> UpdateQuantity(int userId, int productId, int newQuantity)
+        [HttpPost("remove")]
+        public async Task<IActionResult> Remove([FromBody] UpdateCartDTO request)
         {
-            await _cartService.UpdateCartItemAsync(userId, productId, newQuantity, true);
-            return Ok("Quantity updated successfully");
+            await _cartService.RemoveCartItemAsync(request.UserId, request.ProductId);
+            return Ok("Remove successfully");
         }
+
+
 
     }
 }

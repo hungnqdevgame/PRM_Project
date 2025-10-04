@@ -26,8 +26,8 @@ namespace BLL.Service
         public Task<CartItem?> GetCartItemAsync(int cartId, int productId)
         =>_cartRepository.GetCartItemAsync(cartId, productId);
 
-        public Task RemoveCartItemAsync(CartItem cartItem)
-        => _cartRepository.RemoveCartItemAsync(cartItem);
+        public Task RemoveCartItemAsync(int userId, int productId)
+        => _cartRepository.RemoveCartItemAsync(userId,productId);
 
         public Task SaveChangesAsync()
             => _cartRepository.SaveChangesAsync();

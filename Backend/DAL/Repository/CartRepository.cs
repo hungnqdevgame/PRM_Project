@@ -19,7 +19,7 @@ namespace DAL.Repository
         {
             _context = context;
         }
-        public async Task<Cart> GetCartAsync(int userId)
+        public async Task<Cart?> GetCartAsync(int userId)
         {
             return await _context.Carts
                 .Include(c => c.CartItems)
@@ -129,9 +129,23 @@ namespace DAL.Repository
             await _context.SaveChangesAsync();
         }
 
-        public async Task RemoveCartItemAsync(CartItem cartItem)
+        public async Task RemoveCartItemAsync(int userId,int productId)
         {
-             _context.CartItems.Remove(cartItem);
+            var cart = await _context.Carts
+          .Include(c => c.CartItems)
+          .ThenInclude(ci => ci.Product)
+          .FirstOrDefaultAsync(c => c.UserId == userId);
+            var cartItem = cart.CartItems.FirstOrDefault(ci => ci.ProductId == productId);
+            if (cart != null)
+            {
+                _context.CartItems.Remove(cartItem);
+            }
+            else
+            {
+                throw new Exception("Not found");
+            }
+           
+           await _context.SaveChangesAsync();
         }
 
         public async Task UpdateCartItemAsync(int userId, int productId, int quantityChange, bool isAbsolute = false)

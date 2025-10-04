@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Storage;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.Collections.Generic;
@@ -14,6 +16,20 @@ public partial class SalesAppDBContext : DbContext
     public SalesAppDBContext(DbContextOptions<SalesAppDBContext> options)
         : base(options)
     {
+        try
+        {
+            var databaseCreator = Database.GetService<IDatabaseCreator>() as RelationalDatabaseCreator;
+            if(databaseCreator != null )
+            {
+                if(!databaseCreator.CanConnect()) databaseCreator.Create();
+                if(!databaseCreator.HasTables())  databaseCreator.CreateTables();
+            }
+        }
+        catch (Exception ex)
+        {
+            // Log or handle the exception as needed
+            Console.WriteLine($"An error occurred while initializing the database: {ex.Message}");
+        }
     }
 
     public virtual DbSet<Cart> Carts { get; set; }
