@@ -1,0 +1,33 @@
+# Multi-stage Dockerfile for .NET 9.0 API
+# Stage 1: Build environment
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
+
+# Copy project files first for better caching
+COPY ["PRM_BE/PRM_BE.csproj", "PRM_BE/"]
+COPY ["BLL/BLL.csproj", "BLL/"]
+COPY ["DAL/DAL.csproj", "DAL/"]
+
+# Restore dependencies
+RUN dotnet restore "PRM_BE/PRM_BE.csproj"
+
+# Copy all source code
+COPY . .
+
+# Set working directory to main project
+WORKDIR "/src/PRM_BE"
+
+# Build the application
+RUN dotnet build "PRM_BE.csproj" -c Release -o /app/build
+
+# Stage 2: Publish
+FROM build AS publish
+RUN dotnet publish "PRM_BE.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+# Stage 3: Runtime environment
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
+WORKDIR /app
+
+
+# Entry point
+ENTRYPOINT ["dotnet", "PRM_BE.dll"]
