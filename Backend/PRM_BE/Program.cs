@@ -1,6 +1,7 @@
 using BLL.IService;
 using BLL.Service;
 using DAL.IRepository;
+using DAL.Model.Momo;
 using DAL.Models;
 using DAL.Repository;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -23,7 +24,12 @@ builder.Services.AddHttpClient();
 //var dbPassword = "12345678";
 //var connectionString = $"Data Source = {dbHost};Initial Catalog ={dbName};User Id = sa;Password ={dbPassword} ";
 //builder.Services.AddDbContext<SalesAppDBContext>(options => options.UseSqlServer(connectionString));
-
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.Preserve;
+        options.JsonSerializerOptions.WriteIndented = true;
+    });
 builder.Services.AddDbContext<SalesAppDBContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
 
@@ -62,7 +68,11 @@ builder.Services.AddScoped<ICartRepository, CartRepository>();
 builder.Services.AddScoped<ICartService, CartService>();
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserService, UserService>();
-
+builder.Services.Configure<MomoOption>(builder.Configuration.GetSection("MomoAPI"));
+builder.Services.AddScoped<IMomoService, MomoService>();
+builder.Services.AddScoped<IPaymentRepository,PaymentRepository>();
+builder.Services.AddScoped<IOrderRepository, OrderRepository>();
+builder.Services.AddScoped<IOrderService, OrderService>();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
