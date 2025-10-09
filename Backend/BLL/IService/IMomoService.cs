@@ -11,7 +11,7 @@ namespace BLL.IService
 {
     public interface IMomoService
     {
-        Task<MomoCreatePaymentResponse> CreatePaymentAsync(Order order);
+        Task<MomoCreatePaymentResponse> CreatePaymentAsync(Payment paymentId);
         Task<MomoExecuteResponse> PaymentExcuteAsync(IQueryCollection request);
     }
 }

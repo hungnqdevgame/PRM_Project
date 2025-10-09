@@ -5,9 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace DAL.IRepository
+namespace BLL.IService
 {
-    public interface IOrderRepository
+    public interface IOrderService
     {
         Task<List<Order>> GetAll();
         Task<Order> CreateOrder(int userId, string paymentMethod, string address);
@@ -17,6 +17,7 @@ namespace DAL.IRepository
 
         Task<Order> GetOrderByIdAsync(int orderId);
         Task AddOrder(Order order);
+
         Task<decimal> GetTotalAmount(int orderId);
     }
 }

@@ -24,30 +24,26 @@ namespace DAL.Repository
             return order = await _context.Orders.ToListAsync();
         }
 
-        public async Task<Order> CreateOrder(int userId,string paymentMethod,string address)
+        public async Task<Order> CreateOrder(int userId, string paymentMethod, string address)
         {
-            var cart = await _context.Carts.FindAsync(userId);
+            var cart = await _context.Carts.Include(c => c.CartItems).FirstOrDefaultAsync(c => c.UserId == userId);
             
-            if(cart == null)
+            if (cart == null || cart.CartItems == null || !cart.CartItems.Any())
             {
-                 throw new Exception("not found");
-            } 
-
-            var order  = await _context.Orders.Include(c =>c.Cart)
-                .FirstOrDefaultAsync(u =>u.UserId == userId && u.CartId == cart.CartId);
-
-            if(order != null)
-            {
-                var newOrder = new Order
-                {
-                    UserId = userId,
-                    CartId = cart.CartId,                
-                    OrderDate = DateTime.Now,
-                    BillingAddress = address,
-                    PaymentMethod = paymentMethod,
-                    OrderStatus = "Pending"
-                };
+                throw new Exception("Cart not found or is empty");
             }
+
+            var order = new Order
+            {
+                UserId = userId,
+                CartId = cart.CartId,
+                OrderDate = DateTime.Now,
+                BillingAddress = address,
+                PaymentMethod = paymentMethod,
+                OrderStatus = "Pending",
+                    
+            };
+
             _context.Orders.Add(order);
             await _context.SaveChangesAsync();
 
@@ -84,6 +80,27 @@ namespace DAL.Repository
         public async Task<Order> GetOrderByIdAsync(int orderId)
         {
             return await _context.Orders.FindAsync(orderId);
+        }
+
+        public async Task AddOrder(Order order)
+        {
+            _context.Orders.Add(order);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task<decimal> GetTotalAmount(int orderId)
+        {
+            var order = await _context.Orders
+                .Include(o => o.Cart)
+                .ThenInclude(c => c.CartItems)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+            if (order == null || order.Cart == null || order.Cart.CartItems == null)
+            {
+                throw new Exception("Order or Cart not found");
+            }
+           var amount = order.Cart.TotalPrice;
+           
+         return  amount;
         }
     }
 }
