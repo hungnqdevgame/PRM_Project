@@ -13,10 +13,12 @@ namespace PRM_BE.Controllers
     public class AuthController : ControllerBase
     {
        private readonly IAccountService _accountService;
+        private readonly IUserService _userService;
 
-        public AuthController(IAccountService accountService)
+        public AuthController(IAccountService accountService,IUserService userService)
         {
             _accountService = accountService;
+            _userService = userService;
         }
         [HttpPost("register")]
         public async Task<ActionResult<User>> Register([FromBody] RegisterDTO request)
@@ -48,7 +50,12 @@ namespace PRM_BE.Controllers
             try
             {
                 var token = await _accountService.LoginAsync(request.Username, request.Password);
-                return Ok(new { token });
+                var user =  _userService.GetUserByUsername(request.Username);
+                return Ok(new
+                {
+                    userId = user.UserId,
+                    token = token
+                });
             }
             catch (Exception ex)
             {

@@ -66,9 +66,10 @@ namespace DAL.Repository
             // Generate JWT token
             var claims = new[]
             {
-            new Claim(JwtRegisteredClaimNames.Sub, user.Username),
-            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
-            new Claim("userId", user.UserId.ToString())
+           new Claim(ClaimTypes.NameIdentifier, user.UserId.ToString()), // ✅ userId thực tế
+            new Claim(ClaimTypes.Name, user.Username),                     // ✅ tên người dùng
+            new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString())
+
             };
 
             var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]!));
@@ -85,5 +86,7 @@ namespace DAL.Repository
 
             return new JwtSecurityTokenHandler().WriteToken(token);
         }
+
+     
     }
 }

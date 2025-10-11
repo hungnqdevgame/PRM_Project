@@ -18,12 +18,12 @@ namespace DAL.Repository
             _context = context;
         }
 
-        public User GetUserByUsername(string username)
+        public User? GetUserByUsername(string username)
         {
             return _context.Users.FirstOrDefault(u => u.Username == username);
         }
 
-        public async Task<User> GetUserByIdAsync(int userId)
+        public async Task<User?> GetUserByIdAsync(int userId)
         {
             return await _context.Users.FindAsync(userId);
         }
