@@ -1,0 +1,52 @@
+# ============================
+# Stage 1: Build environment
+# ============================
+FROM mcr.microsoft.com/dotnet/sdk:9.0 AS build
+WORKDIR /src
+
+# Copy csproj files and restore
+COPY ["PRM_BE/PRM_BE.csproj", "PRM_BE/"]
+COPY ["BLL/BLL.csproj", "BLL/"]
+COPY ["DAL/DAL.csproj", "DAL/"]
+
+RUN dotnet restore "PRM_BE/PRM_BE.csproj"
+
+# Copy the rest of the source code
+COPY . .
+
+WORKDIR "/src/PRM_BE"
+
+# Build the app
+RUN dotnet build "PRM_BE.csproj" -c Release -o /app/build
+
+# ============================
+# Stage 2: Publish
+# ============================
+FROM build AS publish
+RUN dotnet publish "PRM_BE.csproj" -c Release -o /app/publish /p:UseAppHost=false
+
+# ============================
+# Stage 3: Runtime environment
+# ============================
+FROM mcr.microsoft.com/dotnet/aspnet:9.0 AS final
+WORKDIR /app
+
+# Copy published files
+COPY --from=publish /app/publish .
+
+# Configure Data Protection storage (optional)
+RUN mkdir -p /var/aspnet/.aspnet/DataProtection-Keys \
+    && chown -R 1000:1000 /var/aspnet \
+    && chmod 700 /var/aspnet/.aspnet/DataProtection-Keys
+ENV HOME=/var/aspnet
+VOLUME ["/var/aspnet/.aspnet/DataProtection-Keys"]
+
+# ✅ Force the app to listen on port 8080 (no HTTPS)
+ENV ASPNETCORE_URLS=http://+:8080
+ENV ASPNETCORE_ENVIRONMENT=Development
+
+EXPOSE 8080
+
+USER 1000
+
+ENTRYPOINT ["dotnet", "PRM_BE.dll"]
