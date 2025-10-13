@@ -16,9 +16,19 @@ namespace BLL.Service
         {
             _productRepository = productRepository;
         }
+
+        public async Task<Product> AddProductAsync(Product product)
+       =>await _productRepository.AddProductAsync(product);
+
+        public Task DeleteProductAsync(int productId)
+       => _productRepository.DeleteProductAsync(productId);
+
         public async Task<List<Product>> GetAllProductsAsync()
             => await _productRepository.GetAllProductsAsync();
         public async Task<Product> GetProductByIdAsync(int productId)
             => await _productRepository.GetProductByIdAsync(productId);
+
+        public async Task<Product> UpdateProductAsync(Product product)
+        =>await _productRepository.UpdateProductAsync(product);
     }
 }

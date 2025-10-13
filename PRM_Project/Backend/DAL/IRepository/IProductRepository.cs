@@ -11,5 +11,9 @@ namespace DAL.IRepository
     {
         Task<List<Product>> GetAllProductsAsync();
         Task<Product> GetProductByIdAsync(int productId);
+        Task<Product> AddProductAsync(Product product);
+        Task DeleteProductAsync(int productId);
+        Task<Product> UpdateProductAsync(Product product);
+
     }
 }
