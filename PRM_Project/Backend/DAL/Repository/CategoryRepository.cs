@@ -29,6 +29,7 @@ namespace DAL.Repository
             {
                 CategoryName = category.CategoryName,
 
+
             };
             await _context.Categories.AddAsync(newCategory);
             await _context.SaveChangesAsync();

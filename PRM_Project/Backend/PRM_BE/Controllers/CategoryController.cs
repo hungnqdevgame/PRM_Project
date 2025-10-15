@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace PRM_BE.Controllers
 {
+    [Route("api/[controller]")]
+    [ApiController]
     public class CategoryController : ControllerBase
     {
         private readonly ICategoryService _categoryService;
@@ -28,14 +30,18 @@ namespace PRM_BE.Controllers
             }
             return new OkObjectResult(category);
         }
-        [HttpPost]
-        public async Task<IActionResult> AddCategory([FromBody] Category category)
+        [HttpPost("add")]
+        public async Task<IActionResult> AddCategory([FromBody] string category)
         {
             if (category == null)
             {
                 return new BadRequestObjectResult("Category is null");
             }
-            var newCategory = await _categoryService.AddCategoryAsync(category);
+             Category categoryObj = new Category
+            {
+                CategoryName = category
+            };
+            var newCategory = await _categoryService.AddCategoryAsync(categoryObj);
             return new OkObjectResult(newCategory);
         }
         [HttpDelete("delete")]

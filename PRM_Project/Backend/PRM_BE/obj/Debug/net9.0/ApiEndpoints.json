@@ -1,31 +1,5 @@
 [
   {
-    "ContainingType": "PRM_BE.Controllers.CategoryController",
-    "Method": "GetCategoryById",
-    "RelativePath": "{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PRM_BE.Controllers.CategoryController",
-    "Method": "GetAllCategories",
-    "RelativePath": "all",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
     "ContainingType": "PRM_BE.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
@@ -162,6 +136,80 @@
       {
         "Name": "request",
         "Type": "PRM_BE.DTO.AddToCartDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.CategoryController",
+    "Method": "GetCategoryById",
+    "RelativePath": "api/Category/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.CategoryController",
+    "Method": "AddCategory",
+    "RelativePath": "api/Category/add",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.CategoryController",
+    "Method": "GetAllCategories",
+    "RelativePath": "api/Category/all",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.CategoryController",
+    "Method": "DeleteCategory",
+    "RelativePath": "api/Category/delete",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.CategoryController",
+    "Method": "UpdateCategory",
+    "RelativePath": "api/Category/update",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "category",
+        "Type": "DAL.Models.Category",
         "IsRequired": true
       }
     ],
@@ -376,38 +424,6 @@
       {
         "Name": "id",
         "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PRM_BE.Controllers.CategoryController",
-    "Method": "DeleteCategory",
-    "RelativePath": "delete",
-    "HttpMethod": "DELETE",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PRM_BE.Controllers.CategoryController",
-    "Method": "UpdateCategory",
-    "RelativePath": "update",
-    "HttpMethod": "PUT",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "category",
-        "Type": "DAL.Models.Category",
         "IsRequired": true
       }
     ],

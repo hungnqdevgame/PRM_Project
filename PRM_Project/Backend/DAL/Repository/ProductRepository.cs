@@ -18,12 +18,13 @@ namespace DAL.Repository
         }
 
         public async Task<List<Product>> GetAllProductsAsync()
-            => await _context.Products.ToListAsync();
-        
+            => await _context.Products.Include(p => p.Category).ToListAsync();
+
 
         public async Task<Product> GetProductByIdAsync(int productId)
-     => await _context.Products.FindAsync(productId);
-       
+      => await _context.Products.Include(p => p.Category)
+        .FirstOrDefaultAsync(p => p.ProductId == productId);
+
         public async Task<Product> AddProductAsync(Product product)
         {
             var newProduct = new Product
@@ -38,7 +39,11 @@ namespace DAL.Repository
             };
             await _context.Products.AddAsync(newProduct);
             await _context.SaveChangesAsync();
-            return newProduct;
+
+            // Reload with Category included
+            return await _context.Products
+                .Include(p => p.Category)
+                .FirstOrDefaultAsync(p => p.ProductId == newProduct.ProductId);
         }
 
         public async Task DeleteProductAsync(int productId)

@@ -51,9 +51,10 @@ namespace PRM_BE.Controllers
                 Price = product.Price,
                 ImageUrl = product.ImageUrl,
                 CategoryId = product.CategoryId
+
             };
-            _productService.AddProductAsync(newProduct);
-            return Ok(new { message = "Product added to cart" });
+            await _productService.AddProductAsync(newProduct);
+            return Ok(new { message = "Product created successfully" });
 
         }
 
