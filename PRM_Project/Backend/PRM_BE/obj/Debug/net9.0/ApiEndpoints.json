@@ -404,6 +404,80 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PRM_BE.Controllers.StoreLocationController",
+    "Method": "CreateLocation",
+    "RelativePath": "api/StoreLocation/CreateLocation",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "location",
+        "Type": "PRM_BE.DTO.StoreLocationDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.StoreLocationController",
+    "Method": "DeleteLocation",
+    "RelativePath": "api/StoreLocation/DeleteLocation",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "locationId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.StoreLocationController",
+    "Method": "GetAllLocations",
+    "RelativePath": "api/StoreLocation/GetAllLocations",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.StoreLocationController",
+    "Method": "GetLocationById",
+    "RelativePath": "api/StoreLocation/GetLocationById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.StoreLocationController",
+    "Method": "UpdateLocation",
+    "RelativePath": "api/StoreLocation/UpdateLocation",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "location",
+        "Type": "PRM_BE.DTO.StoreLocationDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PRM_BE.Controllers.UserController",
     "Method": "GetAllUsersAsync",
     "RelativePath": "api/User",
