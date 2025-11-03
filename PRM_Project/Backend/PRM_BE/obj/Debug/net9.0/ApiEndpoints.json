@@ -1,5 +1,15 @@
 [
   {
+    "ContainingType": "PRM_BE.Controllers.CheckoutController",
+    "Method": "Index",
+    "RelativePath": "",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PRM_BE.Controllers.AuthController",
     "Method": "Login",
     "RelativePath": "api/Auth/login",
@@ -498,6 +508,32 @@
       {
         "Name": "id",
         "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.CheckoutController",
+    "Method": "Cancel",
+    "RelativePath": "cancel",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.CheckoutController",
+    "Method": "Checkout",
+    "RelativePath": "create-payment-link",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "PRM_BE.DTO.CheckoutDTO",
         "IsRequired": true
       }
     ],

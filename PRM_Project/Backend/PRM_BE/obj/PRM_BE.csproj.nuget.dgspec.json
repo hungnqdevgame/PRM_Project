@@ -247,6 +247,10 @@
             "Swashbuckle.AspNetCore.SwaggerUI": {
               "target": "Package",
               "version": "[9.0.5, )"
+            },
+            "payOS.Net5": {
+              "target": "Package",
+              "version": "[1.0.7, )"
             }
           },
           "imports": [

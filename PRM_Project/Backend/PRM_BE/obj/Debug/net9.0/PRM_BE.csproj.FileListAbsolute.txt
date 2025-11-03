@@ -304,3 +304,4 @@ D:\PRM_PJ\PRM_Project\Backend\PRM_BE\obj\Debug\net9.0\refint\PRM_BE.dll
 D:\PRM_PJ\PRM_Project\Backend\PRM_BE\obj\Debug\net9.0\PRM_BE.pdb
 D:\PRM_PJ\PRM_Project\Backend\PRM_BE\obj\Debug\net9.0\PRM_BE.genruntimeconfig.cache
 D:\PRM_PJ\PRM_Project\Backend\PRM_BE\obj\Debug\net9.0\ref\PRM_BE.dll
+D:\PRM_PJ\PRM_Project\Backend\PRM_BE\bin\Debug\net9.0\payos-lib-dotnet-5.0.dll
