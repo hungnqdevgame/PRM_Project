@@ -11,7 +11,7 @@ namespace BLL.IService
     {
         Task<List<Order>> GetAll();
         Task<Order> CreateOrder(int userId, string paymentMethod, string address);
-        Task UpdateOrder(int userOrderId, string status);
+        Task<Order> UpdateOrder(int userOrderId, string status);
 
         Task AddAsync(Order order);
 
@@ -19,5 +19,7 @@ namespace BLL.IService
         Task AddOrder(Order order);
 
         Task<decimal> GetTotalAmount(int orderId);
+
+        Task<Cart> GetCartByOrderId(int orderId);
     }
 }

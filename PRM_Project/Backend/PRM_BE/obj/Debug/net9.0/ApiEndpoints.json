@@ -226,6 +226,42 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "PRM_BE.Controllers.CheckoutController",
+    "Method": "Success",
+    "RelativePath": "api/Checkout/check-status",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.String",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.CheckoutController",
+    "Method": "Checkout",
+    "RelativePath": "api/Checkout/create-payment-link",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "PRM_BE.DTO.CheckoutDTO",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "PRM_BE.Controllers.OrderController",
     "Method": "GetAll",
     "RelativePath": "api/Order",
@@ -521,22 +557,6 @@
     "IsController": true,
     "Order": 0,
     "Parameters": [],
-    "ReturnTypes": []
-  },
-  {
-    "ContainingType": "PRM_BE.Controllers.CheckoutController",
-    "Method": "Checkout",
-    "RelativePath": "create-payment-link",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "dto",
-        "Type": "PRM_BE.DTO.CheckoutDTO",
-        "IsRequired": true
-      }
-    ],
     "ReturnTypes": []
   }
 ]

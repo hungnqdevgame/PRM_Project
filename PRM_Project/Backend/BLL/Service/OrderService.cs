@@ -29,13 +29,19 @@ namespace BLL.Service
         public Task<List<Order>> GetAll()
       => _orderRepository.GetAll();
 
+        public Task<Cart> GetCartByOrderId(int orderId)
+       => _orderRepository.GetCartByOrderId(orderId);
+
         public Task<Order> GetOrderByIdAsync(int orderId)
        => _orderRepository.GetOrderByIdAsync(orderId);
 
         public Task<decimal> GetTotalAmount(int orderId)
       => _orderRepository.GetTotalAmount(orderId);
 
-        public Task UpdateOrder(int userOrderId, string status)
+        public Task<Order> UpdateOrder(int userOrderId, string status)
       => _orderRepository.UpdateOrder(userOrderId, status);
+
+       
+       
     }
 }
