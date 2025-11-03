@@ -27,6 +27,14 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddHttpClient();
 builder.Services.AddSingleton(payOS);
 builder.Services.AddHttpContextAccessor();
+builder.Services.AddDistributedMemoryCache();
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30); // th?i gian l?u session
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 
 /* Database Context Dependency Injection */
 //var dbHost = "localhost";
@@ -162,7 +170,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 
 }
-
+app.UseSession();
 app.UseHttpsRedirection();
 app.UseAuthentication().UseAuthorization();
 

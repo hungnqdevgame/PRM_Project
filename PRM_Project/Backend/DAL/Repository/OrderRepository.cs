@@ -50,7 +50,7 @@ namespace DAL.Repository
             return order;
         }
 
-        public async Task UpdateOrder(int userOrderId, string status)
+        public async Task<Order> UpdateOrder(int userOrderId, string status)
         {
             var order = await _context.Orders.FindAsync(userOrderId);
             if(order == null)
@@ -69,6 +69,8 @@ namespace DAL.Repository
             }
             _context.Orders.Update(order);
             await _context.SaveChangesAsync();
+
+            return order;
         }
 
         public async Task AddAsync(Order order)
@@ -101,6 +103,18 @@ namespace DAL.Repository
            var amount = order.Cart.TotalPrice;
            
          return  amount;
+        }
+
+        public async Task<Cart> GetCartByOrderId(int orderId)
+        {
+            var order = await _context.Orders
+                .Include(o => o.Cart)
+                .FirstOrDefaultAsync(o => o.OrderId == orderId);
+            if (order == null)
+            {
+                throw new Exception("Order not found");
+            }
+            return  order.Cart;
         }
     }
 }

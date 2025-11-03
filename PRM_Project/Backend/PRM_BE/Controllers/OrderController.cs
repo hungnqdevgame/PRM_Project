@@ -1,6 +1,7 @@
 ﻿using BLL.IService;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using PRM_BE.DTO;
 
 namespace PRM_BE.Controllers
 {
@@ -20,15 +21,15 @@ namespace PRM_BE.Controllers
             return Ok(orders);
         }
         [HttpPost]
-        public async Task<IActionResult> CreateOrder(int userId, string paymentMethod, string address)
+        public async Task<IActionResult> CreateOrder(OrderDTO dto)
         {
-            var order = await _orderService.CreateOrder(userId, paymentMethod, address);
+            var order = await _orderService.CreateOrder(dto.UserId, dto.PaymentMethod, dto.Address);
             return Ok(order);
         }
         [HttpPut("{userOrderId}")]
-        public async Task<IActionResult> UpdateOrder(int userOrderId, string status)
+        public async Task<IActionResult> UpdateOrder(UpdateOrderDTO dto)
         {
-            await _orderService.UpdateOrder(userOrderId, status);
+            await _orderService.UpdateOrder(dto.OrderId, dto.OrderStatus);
             return NoContent();
         }
         [HttpGet("{orderId}")]
