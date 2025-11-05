@@ -43,30 +43,60 @@ namespace PRM_BE.Controllers
             // Trả về trang HTML có tên "MyView.cshtml"
             return Redirect("cancel");
         }
-        [HttpGet("check-status")]
-        public async Task<ActionResult<string>> Success()
+        [HttpGet("success")]
+        public async Task<IActionResult> Success()
         {
-           
-              
-                var session = _httpContextAccessor.HttpContext.Session;
-                var orderCodeStr = session.GetString("lastOrderCode");
+            var session = _httpContextAccessor.HttpContext.Session;
+            var orderCodeStr = session.GetString("lastOrderCode");
 
-                if (string.IsNullOrEmpty(orderCodeStr))
+            if (string.IsNullOrEmpty(orderCodeStr))
+            {
+                Console.WriteLine("⚠️ Không tìm thấy orderCode trong Session!");
+                return StatusCode(500, new
                 {
-                    Console.WriteLine("⚠️ Không tìm thấy orderCode trong Session!");
-                    return "Khong co don hang";
-                }
+                    status = "FAILED",
+                    message = "Không tìm thấy mã đơn hàng trong session."
+                });
+            }
 
+            try
+            {
                 long orderCode = long.Parse(orderCodeStr);
                 Console.WriteLine($"🔹 /success được gọi với orderCode: {orderCode}");
 
-                // 2️⃣ Gọi PayOS để lấy thông tin thanh toán
                 var paymentInfo = await _payOS.getPaymentLinkInformation(orderCode);
                 Console.WriteLine($"🔹 Trạng thái thanh toán từ PayOS: {paymentInfo.status}");
 
-            
-            return paymentInfo.status;
-      }
+                // Nếu trạng thái thanh toán là "PAID" hoặc "SUCCEEDED"
+                if (paymentInfo.status == "PAID" || paymentInfo.status == "SUCCEEDED")
+                {
+                    return Ok(new
+                    {
+                        status = "SUCCESS",
+                        message = "Thanh toán thành công",
+                        data = paymentInfo
+                    });
+                }
+                else
+                {
+                    return StatusCode(500, new
+                    {
+                        status = "FAILED",
+                        message = $"Thanh toán chưa hoàn tất. Trạng thái hiện tại: {paymentInfo.status}"
+                    });
+                }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"❌ Lỗi khi gọi PayOS: {ex.Message}");
+                return StatusCode(500, new
+                {
+                    status = "FAILED",
+                    message = "Lỗi hệ thống khi lấy thông tin thanh toán.",
+                    error = ex.Message
+                });
+            }
+        }
 
         [HttpPost("create-payment-link")]
         public async Task<IActionResult> Checkout(CheckoutDTO dto, [FromServices] SalesAppDBContext context)

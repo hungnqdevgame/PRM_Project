@@ -227,26 +227,6 @@
   },
   {
     "ContainingType": "PRM_BE.Controllers.CheckoutController",
-    "Method": "Success",
-    "RelativePath": "api/Checkout/check-status",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.String",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "PRM_BE.Controllers.CheckoutController",
     "Method": "Checkout",
     "RelativePath": "api/Checkout/create-payment-link",
     "HttpMethod": "POST",
@@ -259,6 +239,16 @@
         "IsRequired": true
       }
     ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "PRM_BE.Controllers.CheckoutController",
+    "Method": "Success",
+    "RelativePath": "api/Checkout/success",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
     "ReturnTypes": []
   },
   {
@@ -280,19 +270,9 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userId",
-        "Type": "System.Int32",
-        "IsRequired": false
-      },
-      {
-        "Name": "paymentMethod",
-        "Type": "System.String",
-        "IsRequired": false
-      },
-      {
-        "Name": "address",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "dto",
+        "Type": "PRM_BE.DTO.OrderDTO",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []
@@ -322,14 +302,14 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userOrderId",
-        "Type": "System.Int32",
+        "Name": "dto",
+        "Type": "PRM_BE.DTO.UpdateOrderDTO",
         "IsRequired": true
       },
       {
-        "Name": "status",
-        "Type": "System.String",
-        "IsRequired": false
+        "Name": "userOrderId",
+        "Type": "",
+        "IsRequired": true
       }
     ],
     "ReturnTypes": []

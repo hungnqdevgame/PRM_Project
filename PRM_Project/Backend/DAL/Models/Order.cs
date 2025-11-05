@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Text.Json.Serialization;
 
 namespace DAL.Models;
 
@@ -19,8 +20,8 @@ public partial class Order
 
     public DateTime OrderDate { get; set; }
 
-   
 
+    [JsonIgnore]
     public virtual Cart? Cart { get; set; }
 
     public virtual ICollection<Payment> Payments { get; set; } = new List<Payment>();
