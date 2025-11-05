@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 
 namespace DAL.Models;
 
@@ -14,6 +15,8 @@ public partial class Cart
 
     public string Status { get; set; } = null!;
 
+
+    [JsonIgnore]
     public virtual ICollection<CartItem> CartItems { get; set; } = new List<CartItem>();
 
     public virtual ICollection<Order> Orders { get; set; } = new List<Order>();
