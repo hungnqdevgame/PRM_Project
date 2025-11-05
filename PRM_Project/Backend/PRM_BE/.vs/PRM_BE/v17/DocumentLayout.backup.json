@@ -158,20 +158,8 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 4,
           "Children": [
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "CartRepository.cs",
-              "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Repository\\CartRepository.cs",
-              "RelativeDocumentMoniker": "..\\DAL\\Repository\\CartRepository.cs",
-              "ToolTip": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Repository\\CartRepository.cs",
-              "RelativeToolTip": "..\\DAL\\Repository\\CartRepository.cs",
-              "ViewState": "AgIAACUAAAAAAAAAAAAkwMsAAAAHAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T10:58:51.449Z"
-            },
             {
               "$type": "Document",
               "DocumentIndex": 3,
@@ -226,12 +214,24 @@
               "Title": "appsettings.json",
               "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\PRM_BE\\appsettings.json",
               "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\PRM_PJ\\PRM_Project\\Backend\\PRM_BE\\appsettings.json*",
-              "RelativeToolTip": "appsettings.json*",
+              "ToolTip": "D:\\PRM_PJ\\PRM_Project\\Backend\\PRM_BE\\appsettings.json",
+              "RelativeToolTip": "appsettings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2025-10-17T22:32:18.228Z",
               "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "CartRepository.cs",
+              "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Repository\\CartRepository.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\Repository\\CartRepository.cs",
+              "ToolTip": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Repository\\CartRepository.cs",
+              "RelativeToolTip": "..\\DAL\\Repository\\CartRepository.cs",
+              "ViewState": "AgIAACUAAAAAAAAAAAAkwMsAAAAHAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T10:58:51.449Z"
             },
             {
               "$type": "Document",
