@@ -3,6 +3,10 @@
   "WorkspaceRootPath": "D:\\PRM_PJ\\PRM_Project\\Backend\\PRM_BE\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{9D5DC936-8F4F-44E6-8F73-7FAD1EE9335D}|PRM_BE.csproj|d:\\prm_pj\\prm_project\\backend\\prm_be\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{9D5DC936-8F4F-44E6-8F73-7FAD1EE9335D}|PRM_BE.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{BC0FBD65-6FB2-42D6-98DF-4633DF6DD602}|..\\DAL\\DAL.csproj|d:\\prm_pj\\prm_project\\backend\\dal\\models\\order.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
@@ -29,10 +33,6 @@
     },
     {
       "AbsoluteMoniker": "D:0:0:{BC0FBD65-6FB2-42D6-98DF-4633DF6DD602}|..\\DAL\\DAL.csproj|d:\\prm_pj\\prm_project\\backend\\dal\\repository\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{9D5DC936-8F4F-44E6-8F73-7FAD1EE9335D}|PRM_BE.csproj|d:\\prm_pj\\prm_project\\backend\\prm_be\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{9D5DC936-8F4F-44E6-8F73-7FAD1EE9335D}|PRM_BE.csproj|solutionrelative:appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{9D5DC936-8F4F-44E6-8F73-7FAD1EE9335D}|PRM_BE.csproj|d:\\prm_pj\\prm_project\\backend\\prm_be\\controllers\\checkoutcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -158,24 +158,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 5,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "Category.cs",
-              "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Models\\Category.cs",
-              "RelativeDocumentMoniker": "..\\DAL\\Models\\Category.cs",
-              "ToolTip": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Models\\Category.cs",
-              "RelativeToolTip": "..\\DAL\\Models\\Category.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T10:51:10.644Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 5,
               "Title": "CartRepository.cs",
               "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Repository\\CartRepository.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Repository\\CartRepository.cs",
@@ -183,12 +170,11 @@
               "RelativeToolTip": "..\\DAL\\Repository\\CartRepository.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAAkwMsAAAAHAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T10:58:51.449Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T10:58:51.449Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Cart.cs",
               "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Models\\Cart.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\Cart.cs",
@@ -196,12 +182,11 @@
               "RelativeToolTip": "..\\DAL\\Models\\Cart.cs",
               "ViewState": "AgIAAAYAAAAAAAAAAAAAwBIAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T10:51:08.123Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T10:51:08.123Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "OrderController.cs",
               "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\PRM_BE\\Controllers\\OrderController.cs",
               "RelativeDocumentMoniker": "Controllers\\OrderController.cs",
@@ -209,21 +194,19 @@
               "RelativeToolTip": "Controllers\\OrderController.cs",
               "ViewState": "AgIAAAsAAAAAAAAAAAAAwBoAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-18T00:23:10.108Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-18T00:23:10.108Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "Order.cs",
               "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Models\\Order.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\Order.cs",
-              "ToolTip": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Models\\Order.cs*",
-              "RelativeToolTip": "..\\DAL\\Models\\Order.cs*",
-              "ViewState": "AgIAAAcAAAAAAAAAAAAYwBcAAAAQAAAAAAAAAA==",
+              "ToolTip": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Models\\Order.cs",
+              "RelativeToolTip": "..\\DAL\\Models\\Order.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAYwBYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T08:31:39.948Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:31:39.948Z"
             },
             {
               "$type": "Document",
@@ -239,7 +222,32 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\PRM_BE\\appsettings.json",
+              "RelativeDocumentMoniker": "appsettings.json",
+              "ToolTip": "D:\\PRM_PJ\\PRM_Project\\Backend\\PRM_BE\\appsettings.json*",
+              "RelativeToolTip": "appsettings.json*",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2025-10-17T22:32:18.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Category.cs",
+              "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Models\\Category.cs",
+              "RelativeDocumentMoniker": "..\\DAL\\Models\\Category.cs",
+              "ToolTip": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Models\\Category.cs",
+              "RelativeToolTip": "..\\DAL\\Models\\Category.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-03T10:51:10.644Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
               "Title": "OrderRepository.cs",
               "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Repository\\OrderRepository.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Repository\\OrderRepository.cs",
@@ -247,12 +255,11 @@
               "RelativeToolTip": "..\\DAL\\Repository\\OrderRepository.cs",
               "ViewState": "AgIAABAAAAAAAAAAAAAQwDIAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-17T22:37:50.302Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-17T22:37:50.302Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 6,
               "Title": "CartItem.cs",
               "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Models\\CartItem.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Models\\CartItem.cs",
@@ -260,12 +267,11 @@
               "RelativeToolTip": "..\\DAL\\Models\\CartItem.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-05T03:57:46.511Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-05T03:57:46.511Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "IOrderService.cs",
               "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\BLL\\IService\\IOrderService.cs",
               "RelativeDocumentMoniker": "..\\BLL\\IService\\IOrderService.cs",
@@ -273,12 +279,11 @@
               "RelativeToolTip": "..\\BLL\\IService\\IOrderService.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAuwAwAAAAaAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-11-03T11:08:14.671Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-03T11:08:14.671Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "ProductRepository.cs",
               "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\DAL\\Repository\\ProductRepository.cs",
               "RelativeDocumentMoniker": "..\\DAL\\Repository\\ProductRepository.cs",
@@ -286,21 +291,7 @@
               "RelativeToolTip": "..\\DAL\\Repository\\ProductRepository.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAACgAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-18T00:18:44.741Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "appsettings.json",
-              "DocumentMoniker": "D:\\PRM_PJ\\PRM_Project\\Backend\\PRM_BE\\appsettings.json",
-              "RelativeDocumentMoniker": "appsettings.json",
-              "ToolTip": "D:\\PRM_PJ\\PRM_Project\\Backend\\PRM_BE\\appsettings.json",
-              "RelativeToolTip": "appsettings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAEAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-10-17T22:32:18.228Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-18T00:18:44.741Z"
             },
             {
               "$type": "Document",
@@ -312,8 +303,7 @@
               "RelativeToolTip": "Controllers\\CheckoutController.cs",
               "ViewState": "AgIAACUAAAAAAAAAAAAqwEsAAAA4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-31T08:34:32.927Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-10-31T08:34:32.927Z"
             },
             {
               "$type": "Document",
