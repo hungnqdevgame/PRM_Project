@@ -20,6 +20,9 @@ namespace BLL.Service
         public Task AddToCartAsync(int userId, int productId, int quantity)
         => _cartRepository.AddToCartAsync(userId, productId, quantity);
 
+        public async Task<Cart?> GetByOrderIdAsync(int orderId)
+     => await _cartRepository.GetByOrderIdAsync(orderId);
+
         public Task<Cart> GetCartAsync(int userId)
             => _cartRepository.GetCartAsync(userId);
 

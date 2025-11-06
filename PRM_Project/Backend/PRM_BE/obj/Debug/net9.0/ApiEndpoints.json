@@ -296,7 +296,7 @@
   {
     "ContainingType": "PRM_BE.Controllers.OrderController",
     "Method": "UpdateOrder",
-    "RelativePath": "api/Order/{userOrderId}",
+    "RelativePath": "api/Order/update-status",
     "HttpMethod": "PUT",
     "IsController": true,
     "Order": 0,
@@ -304,11 +304,6 @@
       {
         "Name": "dto",
         "Type": "PRM_BE.DTO.UpdateOrderDTO",
-        "IsRequired": true
-      },
-      {
-        "Name": "userOrderId",
-        "Type": "",
         "IsRequired": true
       }
     ],

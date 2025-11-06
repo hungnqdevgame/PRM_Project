@@ -50,23 +50,15 @@ namespace DAL.Repository
             return order;
         }
 
-        public async Task<Order> UpdateOrder(int userOrderId, string status)
+        public async Task<Order> UpdateOrder(int orderId, string status)
         {
-            var order = await _context.Orders.FindAsync(userOrderId);
+            var order = await _context.Orders.FindAsync(orderId);
             if(order == null)
             {
                 throw new Exception("not found");
             }
             order.OrderStatus = status;
-            if(status == "Completed")
-            {
-               order.OrderStatus = "Success";
-
-            }
-            else
-            {
-                order.OrderStatus = "Fail";
-            }
+           
             _context.Orders.Update(order);
             await _context.SaveChangesAsync();
 
@@ -115,6 +107,16 @@ namespace DAL.Repository
                 throw new Exception("Order not found");
             }
             return  order.Cart;
+        }
+
+        public async Task<Order?> GetByIdAsync(int orderId)
+        {
+            return await _context.Orders
+                 .Include(o => o.User)
+                 .Include(o => o.Cart)
+                 .ThenInclude(c => c.CartItems)
+                 .ThenInclude(ci => ci.Product)
+                 .FirstOrDefaultAsync(o => o.OrderId == orderId);
         }
     }
 }
