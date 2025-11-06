@@ -201,6 +201,15 @@ namespace DAL.Repository
             await _context.SaveChangesAsync();
         }
 
-       
+        public async Task<Cart?> GetByOrderIdAsync(int orderId)
+        {
+            return await _context.Carts
+              .Include(c => c.CartItems)
+              .ThenInclude(ci => ci.Product)
+              .FirstOrDefaultAsync(c => c.CartId ==
+                  _context.Orders.Where(o => o.OrderId == orderId)
+                                 .Select(o => o.CartId)
+                                 .FirstOrDefault());
+        }
     }
 }

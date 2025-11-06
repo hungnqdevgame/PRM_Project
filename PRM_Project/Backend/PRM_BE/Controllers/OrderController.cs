@@ -26,21 +26,39 @@ namespace PRM_BE.Controllers
             var order = await _orderService.CreateOrder(dto.UserId, dto.PaymentMethod, dto.Address);
             return Ok(order);
         }
-        [HttpPut("{userOrderId}")]
+        [HttpPut("update-status")]
         public async Task<IActionResult> UpdateOrder(UpdateOrderDTO dto)
         {
             await _orderService.UpdateOrder(dto.OrderId, dto.OrderStatus);
-            return NoContent();
+            return Ok();
         }
+
+
         [HttpGet("{orderId}")]
         public async Task<IActionResult> GetOrderById(int orderId)
         {
-            var order = await _orderService.GetOrderByIdAsync(orderId);
+            var order = await _orderService.GetByIdAsync(orderId);
             if (order == null)
-            {
                 return NotFound();
-            }
-            return Ok(order);
+
+            // Lấy cart có sản phẩm
+            var cart = order.Cart;
+            var cartItems = cart?.CartItems.Select(ci => new
+            {
+                ci.ProductId,
+                ProductName = ci.Product?.ProductName,
+                ci.Quantity,
+                ci.Price
+            }).ToList();
+
+            return Ok(new
+            {
+                order.OrderId,
+                order.PaymentMethod,
+                order.OrderStatus,
+                order.OrderDate,
+                Products = cartItems
+            });
         }
     }
 }

@@ -11,7 +11,7 @@ namespace DAL.IRepository
     {
         Task<List<Order>> GetAll();
         Task<Order> CreateOrder(int userId, string paymentMethod, string address);
-        Task<Order> UpdateOrder(int userOrderId, string status);
+        Task<Order> UpdateOrder(int orderId, string status);
 
         Task AddAsync(Order order);
 
@@ -20,5 +20,6 @@ namespace DAL.IRepository
         Task<decimal> GetTotalAmount(int orderId);
 
         Task<Cart> GetCartByOrderId(int orderId);
+        Task<Order?> GetByIdAsync(int orderId);
     }
 }

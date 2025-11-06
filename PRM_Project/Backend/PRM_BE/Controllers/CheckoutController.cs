@@ -48,6 +48,7 @@ namespace PRM_BE.Controllers
         {
             var session = _httpContextAccessor.HttpContext.Session;
             var orderCodeStr = session.GetString("lastOrderCode");
+            var orderId = session.GetString("orderId");
 
             if (string.IsNullOrEmpty(orderCodeStr))
             {
@@ -70,6 +71,7 @@ namespace PRM_BE.Controllers
                 // Nếu trạng thái thanh toán là "PAID" hoặc "SUCCEEDED"
                 if (paymentInfo.status == "PAID" || paymentInfo.status == "SUCCEEDED")
                 {
+                    _orderService.UpdateOrder(int.Parse(orderId),"Completed");
                     return Ok(new
                     {
                         status = "SUCCESS",
@@ -126,6 +128,7 @@ namespace PRM_BE.Controllers
          
                 var order = await _orderService.GetOrderByIdAsync(dto.OrderId);
                 _httpContextAccessor.HttpContext.Session.SetString("lastOrderCode", orderCode.ToString());
+                _httpContextAccessor.HttpContext.Session.SetString("orderId", dto.OrderId.ToString());
                 var request = _httpContextAccessor.HttpContext.Request;
                 var baseUrl = $"{request.Scheme}://{request.Host}";
 

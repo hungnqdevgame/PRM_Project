@@ -18,7 +18,8 @@ namespace BLL.IService
         Task RemoveCartItemAsync(int userId, int productId);
         Task<CartItem?> GetCartItemAsync(int cartId, int productId);
         Task UpdateCartItemAsync(int userId, int productId, int quantityChange, bool isAbsolute = false);
+        Task<Cart?> GetByOrderIdAsync(int orderId);
 
-      
+
     }
 }
